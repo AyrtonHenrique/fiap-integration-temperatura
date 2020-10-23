@@ -8,7 +8,6 @@ import javax.persistence.Id;
 @Entity
 public class Drone {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long Id;
     private String Nome;
 
@@ -27,7 +26,9 @@ public class Drone {
     public void setId(long id) {
         this.Id = id;
     }
-
+    public Drone() {
+        super();
+    }
     public Drone(long id, String nome) {
         Id = id;
         Nome = nome;

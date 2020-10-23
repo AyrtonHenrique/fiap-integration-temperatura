@@ -2,6 +2,7 @@ package com.fiap.integration.fiapintegrationmicroservice.models;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,10 +18,10 @@ public class Medicao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne()
-    @JoinColumn(name = "id")
+    @OneToOne() //(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_drone")
     private Drone drone;
-
+    
     private Float latitude;
     private Float longitude;
     private Float temperatura;
@@ -86,6 +87,9 @@ public class Medicao {
 
     public void setLatitude(Float latitude) {
         this.latitude = latitude;
+    }
+    public Medicao() {
+        super();
     }
 
     public Medicao(Drone drone, Float latitude, Float longitude, Float temperatura, Float umidade,
