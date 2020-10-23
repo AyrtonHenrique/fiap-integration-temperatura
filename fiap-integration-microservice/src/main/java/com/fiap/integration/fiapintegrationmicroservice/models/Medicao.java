@@ -1,6 +1,6 @@
 package com.fiap.integration.fiapintegrationmicroservice.models;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -26,7 +26,7 @@ public class Medicao {
     private Float longitude;
     private Float temperatura;
     private Float umidade;
-    private Date dataAtualizacao;
+    private LocalDateTime dataAtualizacao;
     private boolean rastreamento;
 
     public Drone getDrone() {
@@ -49,11 +49,11 @@ public class Medicao {
         this.id = id;
     }
 
-    public Date getDataAtualizacao() {
+    public LocalDateTime getDataAtualizacao() {
         return dataAtualizacao;
     }
 
-    public void setDataAtualizacao(Date dataAtualizacao) {
+    public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
         this.dataAtualizacao = dataAtualizacao;
     }
 
@@ -93,7 +93,7 @@ public class Medicao {
     }
 
     public Medicao(Drone drone, Float latitude, Float longitude, Float temperatura, Float umidade,
-        Date dataAtualizacao, boolean rastreamento) {
+        LocalDateTime dataAtualizacao, boolean rastreamento) {
         this.drone = drone;
         this.latitude = latitude;
         this.longitude = longitude;

@@ -1,0 +1,125 @@
+{
+    "idDrone": 99,
+    "latitude": 9987841,
+    "longitude": 5498799,
+    "temperatura": 35,
+    "umidade": 10,
+    "dataAtualizacao": "2020-10-15"
+}
+
+{
+    "DroneID": "",
+    "droneTemperatureReading": "",
+    "droneHumidityReading": ""
+}
+
+[
+    {
+        "id": 1,
+        "drone": {
+            "id": 99,
+            "nome": ""
+        },
+        "latitude": 9987841.0,
+        "longitude": 5498799.0,
+        "temperatura": 35.0,
+        "umidade": 10.0,
+        "dataAtualizacao": "2020-10-15T00:00:00.000+00:00",
+        "rastreamento": false
+    }
+]
+
+
+[
+    {
+        "id": 1,
+        "drone": {
+            "id": 99,
+            "nome": ""
+        },
+        "latitude": 9987841.0,
+        "longitude": 5498799.0,
+        "temperatura": 35.0,
+        "umidade": 10.0,
+        "dataAtualizacao": "2020-10-15T01:01:35",
+        "rastreamento": false
+    },
+    {
+        "id": 2,
+        "drone": {
+            "id": 99,
+            "nome": ""
+        },
+        "latitude": 9987841.0,
+        "longitude": 5498799.0,
+        "temperatura": 35.0,
+        "umidade": 10.0,
+        "dataAtualizacao": "2020-10-15T01:01:45",
+        "rastreamento": false
+    },
+    {
+        "id": 3,
+        "drone": {
+            "id": 99,
+            "nome": ""
+        },
+        "latitude": 9987841.0,
+        "longitude": 5498799.0,
+        "temperatura": 30.0,
+        "umidade": 10.0,
+        "dataAtualizacao": "2020-10-15T01:01:55",
+        "rastreamento": false
+    },
+    {
+        "id": 4,
+        "drone": {
+            "id": 99,
+            "nome": ""
+        },
+        "latitude": 9987841.0,
+        "longitude": 5498799.0,
+        "temperatura": 30.0,
+        "umidade": 10.0,
+        "dataAtualizacao": "2020-10-15T01:02:00",
+        "rastreamento": false
+    },
+    {
+        "id": 5,
+        "drone": {
+            "id": 99,
+            "nome": ""
+        },
+        "latitude": 9987841.0,
+        "longitude": 5498799.0,
+        "temperatura": 35.0,
+        "umidade": 10.0,
+        "dataAtualizacao": "2020-10-15T01:02:00",
+        "rastreamento": false
+    },
+    {
+        "id": 6,
+        "drone": {
+            "id": 99,
+            "nome": ""
+        },
+        "latitude": 9987841.0,
+        "longitude": 5498799.0,
+        "temperatura": 35.0,
+        "umidade": 10.0,
+        "dataAtualizacao": "2020-10-15T01:03:00",
+        "rastreamento": false
+    },
+    {
+        "id": 7,
+        "drone": {
+            "id": 99,
+            "nome": ""
+        },
+        "latitude": 9987841.0,
+        "longitude": 5498799.0,
+        "temperatura": 35.0,
+        "umidade": 10.0,
+        "dataAtualizacao": "2020-10-15T01:03:01",
+        "rastreamento": false
+    }
+]
