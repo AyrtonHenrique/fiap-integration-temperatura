@@ -4,7 +4,7 @@
     "longitude": 5498799,
     "temperatura": 35,
     "umidade": 10,
-    "dataAtualizacao": "2020-10-15"
+    "dataAtualizacao": "2020-10-15T01:00:00"
 }
 
 {
@@ -121,5 +121,41 @@
         "umidade": 10.0,
         "dataAtualizacao": "2020-10-15T01:03:01",
         "rastreamento": false
+    }
+]
+
+[
+    {
+        "id": 99,
+        "nome": "",
+        "medicoes": [
+            {
+                "id": 2,
+                "latitude": 9987841.0,
+                "longitude": 5498799.0,
+                "temperatura": 35.0,
+                "umidade": 10.0,
+                "dataAtualizacao": "2020-10-15T01:02:30",
+                "rastreamento": false
+            },
+            {
+                "id": 1,
+                "latitude": 9987841.0,
+                "longitude": 5498799.0,
+                "temperatura": 35.0,
+                "umidade": 10.0,
+                "dataAtualizacao": "2020-10-15T01:02:00",
+                "rastreamento": false
+            },
+            {
+                "id": 3,
+                "latitude": 9987841.0,
+                "longitude": 5498799.0,
+                "temperatura": 35.0,
+                "umidade": 10.0,
+                "dataAtualizacao": "2020-10-15T00:02:30",
+                "rastreamento": false
+            }
+        ]
     }
 ]
