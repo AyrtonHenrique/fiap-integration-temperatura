@@ -20,11 +20,11 @@ public class Receiver {
     private IMedicoesAppService _medicoesAppService;
     
 
-    public Receiver(IMedicoesAppService appService, MedicoesRepository medicoesRepository) {
+    public Receiver(IMedicoesAppService appService) {
         _medicoesAppService = appService;
     }
 
-    @RabbitListener(queues = { "queue.entrada" })
+    @RabbitListener(queues = { "${queue.entrada.nome}" })
     public void receiveMessage(@Payload String message) throws JsonMappingException, JsonProcessingException {
 
         System.out.println("Received <" + message + ">");
@@ -32,11 +32,7 @@ public class Receiver {
         ObjectMapper mapper = new ObjectMapper();
         MedicaoConsumerResponse medicaoResponse = mapper.readValue(message, MedicaoConsumerResponse.class);
 
-        Medicao med = new Medicao(new Drone(medicaoResponse.idDrone, ""), medicaoResponse.latitude,
-                medicaoResponse.longitude, medicaoResponse.temperatura, medicaoResponse.umidade,
-                medicaoResponse.dataAtualizacao, medicaoResponse.rastreamento);
-
-        _medicoesAppService.Analisar(med);
+        _medicoesAppService.Analisar(medicaoResponse);
     }
 
 }

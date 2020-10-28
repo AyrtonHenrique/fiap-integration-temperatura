@@ -2,7 +2,7 @@ spring:
   rabbitmq:
     host: jackal.rmq.cloudamqp.com
     port: 5672
-    username: ""
+    username: "vwzfioln"
     password: ""
     virtual-host: ""
   datasource:
@@ -12,3 +12,9 @@ spring:
     password: 
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+queue:
+  email:
+    nome: queue.email
+  entrada:
+    nome: queue.entrada
+  
