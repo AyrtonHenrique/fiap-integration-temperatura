@@ -10,8 +10,9 @@ public class Producer {
     @Autowired
     private RabbitTemplate rabbitTemplate;
  
-    @Autowired
-    private Queue queue;
+    static final String queueName = "${queue.email.nome}";
+
+    private Queue queue = new Queue(queueName, true);
  
     public void send(String email) {
         rabbitTemplate.convertAndSend(this.queue.getName(), email);

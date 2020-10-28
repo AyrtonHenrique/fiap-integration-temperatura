@@ -14,9 +14,12 @@ import javax.persistence.OrderBy;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import net.bytebuddy.dynamic.loading.InjectionClassLoader.Strategy;
+
 @Entity
 public class Drone {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long Id;
 
     private String Nome;

@@ -4,7 +4,8 @@
     "longitude": 5498799,
     "temperatura": 35,
     "umidade": 10,
-    "dataAtualizacao": "2020-10-15T01:00:00"
+    "dataAtualizacao": "2020-10-15T01:00:00",
+    "rastreamento": false
 }
 
 {

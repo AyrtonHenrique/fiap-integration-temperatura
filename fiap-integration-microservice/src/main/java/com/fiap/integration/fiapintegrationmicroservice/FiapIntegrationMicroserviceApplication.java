@@ -20,12 +20,7 @@ public class FiapIntegrationMicroserviceApplication {
 
 	// static final String topicExchangeName = "spring-boot-exchange";
 
-	static final String queueName = "queue.email";
-
-	@Bean
-	Queue queue() {
-		return new Queue(queueName, true);
-	}
+	
 
 	// @Bean
 	// TopicExchange exchange() {

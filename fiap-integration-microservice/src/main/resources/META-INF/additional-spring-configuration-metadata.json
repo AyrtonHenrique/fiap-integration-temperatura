@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "queue.email.nome",
+    "type": "java.lang.String",
+    "description": "A description for 'queue.email.nome'"
+  },
+  {
+    "name": "queue.entrada.nome",
+    "type": "java.lang.String",
+    "description": "A description for 'queue.entrada.nome'"
+  }
+]}
