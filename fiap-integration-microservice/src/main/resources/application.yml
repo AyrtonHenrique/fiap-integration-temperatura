@@ -2,7 +2,7 @@ spring:
   rabbitmq:
     host: jackal.rmq.cloudamqp.com
     port: 5672
-    username: "vwzfioln"
+    username: ""
     password: ""
     virtual-host: ""
   datasource:
