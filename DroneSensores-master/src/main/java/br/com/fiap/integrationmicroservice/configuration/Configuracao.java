@@ -2,8 +2,14 @@ package br.com.fiap.integrationmicroservice.configuration;
 
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.core.env.Environment;
-import java.util.Properties;
 
+
+/**
+ * Classe de configuração para conexão com o RabbitMQ AMPQM 
+ * @author Sara Regina Pires 
+ *              
+ *              
+ **/
 public class Configuracao {
 	private static CachingConnectionFactory connectionFactory;
 	private static Environment environment;

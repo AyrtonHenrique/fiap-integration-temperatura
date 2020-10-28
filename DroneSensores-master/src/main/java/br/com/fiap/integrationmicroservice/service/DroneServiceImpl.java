@@ -3,6 +3,7 @@ package br.com.fiap.integrationmicroservice.service;
 import org.springframework.stereotype.Service;
 
 import br.com.fiap.integrationmicroservice.dto.DroneCreateDTO;
+import br.com.fiap.integrationmicroservice.dto.DroneMedicoesCreateDTO;
 import br.com.fiap.integrationmicroservice.produtor.DroneProdutor;
 
 @Service
@@ -22,5 +23,15 @@ public class DroneServiceImpl implements DroneService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void sendMedicoes(DroneMedicoesCreateDTO droneMedicoesCreateDTO) {
+		try {
+			droneProdutor.sendDroneMedicoes(droneMedicoesCreateDTO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

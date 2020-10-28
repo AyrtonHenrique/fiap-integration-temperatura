@@ -1,18 +1,21 @@
 package br.com.fiap.integrationmicroservice.controller;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import br.com.fiap.integrationmicroservice.dto.*;
-import br.com.fiap.integrationmicroservice.produtor.DroneProdutor;
 import br.com.fiap.integrationmicroservice.service.DroneService;
 
 import org.springframework.http.HttpStatus;
 
-
+/**
+ * Classe de configuração para os arquivos 
+ * 
+ * @param 
+ *              
+ *              
+ **/
 
 @RestController
 @RequestMapping("drone")
@@ -34,47 +37,23 @@ public class DroneSensoresController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			logger.info("");
+			logger.info("Erro no envio dadaos do Drone");
 		}
-        logger.info("Envio de dados do drone");
+        logger.info("Envio de dados do Drone");
     }
     
+    
+    
+    @PostMapping("{idDrone}/medicoes")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createMedicoes(@RequestBody DroneMedicoesCreateDTO droneMedicoesCreateDTO){
+        try {
+        	droneService.sendMedicoes(droneMedicoesCreateDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.info("Erro no envio de dados das medicoes  do Drone");
+		}
+        logger.info("Envio de dados de medicoes do drone");
+    }
 } 
-//	  @GetMapping 
-//	  public List<DroneDTO> getAllDrone(@RequestParam(required = false)	Integer numero)	  { 
-//		  logger.info("Envio dados do drone atualizado"); 
-//		  return droneService.findAll(numero); 
-//	}
-//	  
-//	  @GetMapping("{id}") 
-//	  public DroneDTO getMonitorDroneById(@PathVariable Long id){ 
-//		  return droneService.findById(id); 
-//	  }
-//	  
-//	  
-//	  @PutMapping("{id}/medicoes") 
-//	  public DroneDTO update(@PathVariable Long id,
-//			  				 @RequestBody DroneCreateUpdateDTO productCreateUpdateDTO){ 
-//		  return droneService.update(id, productCreateUpdateDTO); 
-//	  	}
-//	  
-//	  @DeleteMapping("{id}")
-//	  @ResponseStatus(HttpStatus.NO_CONTENT) 
-//	  public void delete(@PathVariable Long id){ 
-//		  droneService.delete(id); 
-//	  }
-//	  
-//	  //GetAllDrones
-//	  
-//	  @GetMapping 
-//	  public List<DroneMedicoesDTO> getAllDrones(){ 
-//	    return droneService.getAllDrones(); 
-//	  }
-//	  
-//	  //GetAllMonitoramentoByDroneId
-//	  
-//	  @GetMapping
-//	  @ResponseStatus(HttpStatus.NO_CONTENT) 
-//	  public DroneMedicoesDTO getAllMonitoramentoByDroneId(@PathVariable Long id) { 
-//		  return droneService.getAllMonitoramentoByDroneId(id); }
-//	 }
