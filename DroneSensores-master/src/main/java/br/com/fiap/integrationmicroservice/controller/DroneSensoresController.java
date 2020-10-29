@@ -10,10 +10,9 @@ import br.com.fiap.integrationmicroservice.service.DroneService;
 import org.springframework.http.HttpStatus;
 
 /**
- * Classe de configuração para os arquivos 
- * 
- * @param 
- *              
+ * Classe controle com os Endpoints de envio dos dados e medições do Drone. 
+ * @author SaraRegina 
+ *               
  *              
  **/
 
@@ -44,7 +43,7 @@ public class DroneSensoresController {
     
     
     
-    @PostMapping("{idDrone}/medicoes")
+    @PostMapping("{id}/medicoes")
     @ResponseStatus(HttpStatus.CREATED)
     public void createMedicoes(@RequestBody DroneMedicoesCreateDTO droneMedicoesCreateDTO){
         try {

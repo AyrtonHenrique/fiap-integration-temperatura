@@ -1,7 +1,11 @@
 package br.com.fiap.integrationmicroservice.configuration;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.core.env.Environment;
+
+import br.com.fiap.integrationmicroservice.controller.DroneSensoresController;
 
 
 /**
@@ -11,6 +15,9 @@ import org.springframework.core.env.Environment;
  *              
  **/
 public class Configuracao {
+	
+	private final Logger logger = LoggerFactory.getLogger(Configuracao.class);
+	
 	private static CachingConnectionFactory connectionFactory;
 	private static Environment environment;
 

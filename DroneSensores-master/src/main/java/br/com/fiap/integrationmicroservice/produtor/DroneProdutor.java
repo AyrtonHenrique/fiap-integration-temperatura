@@ -1,8 +1,9 @@
 package br.com.fiap.integrationmicroservice.produtor;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
@@ -12,12 +13,18 @@ import br.com.fiap.integrationmicroservice.configuration.Configuracao;
 import br.com.fiap.integrationmicroservice.dto.DroneCreateDTO;
 import br.com.fiap.integrationmicroservice.dto.DroneMedicoesCreateDTO;
 
-
+/**
+ * Classe com a implemtações dos envio dos dados do Drone.  
+ * @author Sara Regina Pires 
+ *              
+ *              
+ **/
 @Component
 public class DroneProdutor {
 	
+	private final Logger logger = LoggerFactory.getLogger(DroneProdutor.class);
 	private Environment environment;
-	
+		
 	public DroneProdutor(Environment environment) {
 		this.environment = environment;
 	}
