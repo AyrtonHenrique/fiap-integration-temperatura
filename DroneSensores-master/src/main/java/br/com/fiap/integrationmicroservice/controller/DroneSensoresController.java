@@ -10,7 +10,7 @@ import br.com.fiap.integrationmicroservice.service.DroneService;
 import org.springframework.http.HttpStatus;
 
 /**
- * Classe controle com os Endpoints de envio dos dados e medições do Drone. 
+ * Classe controle com os Endpoints de envio dos dados e medicos do Drone. 
  * @author SaraRegina 
  *               
  *              
@@ -30,24 +30,27 @@ public class DroneSensoresController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody DroneCreateDTO droneCreateDTO){
+    public void create(@RequestBody DroneCreateDTO droneCreateDTO) {
         try {
         	droneService.send(droneCreateDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			logger.info("Erro no envio dadaos do Drone");
+		
 		}
         logger.info("Envio de dados do Drone");
     }
     
     
     
-    @PostMapping("{id}/medicoes")
+    @PutMapping("{id}/medicoes")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createMedicoes(@RequestBody DroneMedicoesCreateDTO droneMedicoesCreateDTO){
+    public void createMedicoes(@PathVariable Long id,  @RequestBody DroneMedicoesCreateDTO droneMedicoesCreateDTO){
         try {
-        	droneService.sendMedicoes(droneMedicoesCreateDTO);
+        	DroneDTO drone = new DroneDTO();
+        	drone.setIdDrone(id);
+        	droneService.sendMedicoes(drone, droneMedicoesCreateDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

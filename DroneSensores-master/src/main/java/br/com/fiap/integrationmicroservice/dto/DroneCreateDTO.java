@@ -9,11 +9,10 @@ import java.time.LocalDateTime;
  **/
 public class DroneCreateDTO {
 	
-	private long idDrone;
 	private Double latitude;
 	private Double longitude;
 	private Double temperatura;
-	private Double unidade;
+	private Double umidade;
 	private LocalDateTime  dataAtualizacao;
 	private Boolean rastreamento;
 	
@@ -28,22 +27,15 @@ public class DroneCreateDTO {
 	public DroneCreateDTO(long idDrone, Double latitude, Double longitude, Double temperatura, Double unidade,
 			LocalDateTime  dataAtualizacao, Boolean rastreamento) {
 		super();
-		this.idDrone = idDrone;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.temperatura = temperatura;
-		this.unidade = unidade;
+		this.umidade = unidade;
 		this.dataAtualizacao = dataAtualizacao;
 		this.rastreamento = rastreamento;
 	}
 	
 	
-	public long getIdDrone() {
-		return idDrone;
-	}
-	public void setIdDrone(long idDrone) {
-		this.idDrone = idDrone;
-	}
 	public Double getLatitude() {
 		return latitude;
 	}
@@ -63,10 +55,10 @@ public class DroneCreateDTO {
 		this.temperatura = temperatura;
 	}
 	public Double getUnidade() {
-		return unidade;
+		return umidade;
 	}
 	public void setUnidade(Double unidade) {
-		this.unidade = unidade;
+		this.umidade = unidade;
 	}
 	public LocalDateTime  getDataAtualizacao() {
 		return dataAtualizacao;
@@ -83,8 +75,8 @@ public class DroneCreateDTO {
 	
 	@Override
 	public String toString() {
-		return "DroneCreateDTO [idDrone=" + idDrone + ", latitude=" + latitude + ", longitude=" + longitude
-				+ ", temperatura=" + temperatura + ", unidade=" + unidade + ", dataAtualizacao=" + dataAtualizacao
+		return "DroneCreateDTO [latitude=" + latitude + ", longitude=" + longitude
+				+ ", temperatura=" + temperatura + ", unidade=" + umidade + ", dataAtualizacao=" + dataAtualizacao
 				+ ", rastreamento=" + rastreamento + "]";
 	}
 

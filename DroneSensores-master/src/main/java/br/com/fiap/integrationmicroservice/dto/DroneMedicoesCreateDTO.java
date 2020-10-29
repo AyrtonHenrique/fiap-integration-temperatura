@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
  **/
 public class DroneMedicoesCreateDTO {
 	
+	
+	private Long idDrone;
 	private Double latitude;
 	private Double logitude;
 	private Double temperatura;
@@ -30,8 +32,16 @@ public class DroneMedicoesCreateDTO {
 		this.rastreamento = rastreamento;
 	}
 
+	
 
 
+	public Long getIdDrone() {
+		return idDrone;
+	}
+
+	public void setIdDrone(Long idDrone) {
+		this.idDrone = idDrone;
+	}
 
 	public Double getLatitude() {
 		return latitude;

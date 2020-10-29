@@ -2,6 +2,7 @@ package br.com.fiap.integrationmicroservice.service;
 
 import org.springframework.stereotype.Service;
 import br.com.fiap.integrationmicroservice.dto.DroneCreateDTO;
+import br.com.fiap.integrationmicroservice.dto.DroneDTO;
 import br.com.fiap.integrationmicroservice.dto.DroneMedicoesCreateDTO;
 
 
@@ -9,6 +10,6 @@ import br.com.fiap.integrationmicroservice.dto.DroneMedicoesCreateDTO;
 public interface DroneService  {
 	
 	 void send(DroneCreateDTO droneCreateDTO);
-	 void sendMedicoes(DroneMedicoesCreateDTO droneCreateMedicoes);
+	 void sendMedicoes(DroneDTO droneDTO, DroneMedicoesCreateDTO droneCreateMedicoes);
 	
 }
