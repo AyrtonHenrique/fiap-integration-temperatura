@@ -44,7 +44,7 @@ public class DroneSensoresController {
     
     
     
-    @PutMapping("{id}/medicoes")
+    @PostMapping("{id}/medicoes")
     @ResponseStatus(HttpStatus.CREATED)
     public void createMedicoes(@PathVariable Long id,  @RequestBody DroneMedicoesCreateDTO droneMedicoesCreateDTO){
         try {
