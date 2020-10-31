@@ -41,21 +41,20 @@ public class DroneSensoresController {
         	for (Field campo : campos) {
         		campo.setAccessible(true);
         		Object objeto = campo.get(droneCreateDTO);
-        		if (objeto.equals(null) || objeto.equals("") ) {
-        			logger.error("Post com o envio dados do drone - Favor preencher os dados");
+        		if (objeto==null || objeto.equals("") ) {
+        			logger.error("Erro Post com o envio dados do drone - Favor preencher os atributos");
         			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         			
-        		} else {
-        			droneService.send(droneCreateDTO);
-        			logger.info("Post com o envio dados do drone - Dados Prechidos");
-        			return new ResponseEntity<Void>(HttpStatus.OK);
-        		}
+        		} 
+        		
         	}
+			droneService.send(droneCreateDTO);
+			logger.info("Post com o envio dados do drone - Dados Prechidos");
+			return new ResponseEntity<Void>(HttpStatus.OK);
         	
 		} catch (Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 		}
-        return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
    
     }
     
@@ -69,24 +68,18 @@ public class DroneSensoresController {
         	for (Field campo : campos) {
         		campo.setAccessible(true);
         		Object objeto = campo.get(droneMedicoesCreateDTO);
-        		if (objeto == null || (objeto.equals("") && id.equals("0")) ) {
+        		if (objeto == null || (objeto.equals("") && (id.equals("0") || id.equals(null) ||id.equals("") )) ) {
         			logger.error("Problema nos campos de para Post com o envio dados das medicoes do drone - Favor preencher os dados");
         			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
-        		} else {
-        			if (id.equals(null) ||id.equals("") ) {
-        				droneMedicoesCreateDTO.setIdDrone("");
-        			} else { 
-        				droneMedicoesCreateDTO.setIdDrone(id);
-        			}
-        			 droneService.sendMedicoes(droneMedicoesCreateDTO);
-        			 logger.info("Dados de medicoes do drone enviado.");
-        			 return new ResponseEntity<Void>(HttpStatus.OK);
-        		}
+        			} 
         	}
+        	 droneMedicoesCreateDTO.setIdDrone(id);
+			 droneService.sendMedicoes(droneMedicoesCreateDTO);
+			 logger.info("Dados de medicoes do drone enviado.");
+			 return new ResponseEntity<Void>(HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 		}
-        return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
        
     }
 } 
