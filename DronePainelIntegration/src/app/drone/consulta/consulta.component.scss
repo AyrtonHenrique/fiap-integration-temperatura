@@ -1,0 +1,43 @@
+.po-font-title{
+    width: 100%; 
+    padding: 0 00px; 
+}
+
+:host ::ng-deep .po-table-header{
+    color: #546569;
+    font-weight: bold;
+    border-bottom: white;
+}
+
+:host ::ng-deep .po-table-single-action{
+    color: #FFAC2B;
+    font-weight: bold;
+}
+
+:host ::ng-deep .po-icon{
+    color: #FFAC2B;
+    font-weight: bold;
+}
+
+:host ::ng-deep .po-popup-item-default{
+    color: #FFAC2B;
+    font-weight: bold;
+}
+
+:host ::ng-deep .po-container{
+    display: block;
+}
+
+.background{
+    background-size: 150%;
+    position: top;
+    background-repeat: no-repeat;
+}
+
+:host ::ng-deep.po-button.po-text-ellipsis{
+    color: black;
+    font-weight: bold;
+    background-color: #FFAC2B;
+    border-color: white;
+    border-radius: 10px;
+}
