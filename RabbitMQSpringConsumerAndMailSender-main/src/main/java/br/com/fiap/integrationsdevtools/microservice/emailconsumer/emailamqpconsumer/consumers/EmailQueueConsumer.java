@@ -110,7 +110,7 @@ public class EmailQueueConsumer {
 	public void processMailQueue(String payload) {
 		this.logger.info("Mail Message Received from Queue: mail-queue - Payload: " + payload);
 		this.logger.info("Enviando email para os destinatários configurados no arquivo de propriedades");
-		new EMailSender(this.getJavaMailSender()).sendEmail(transformPayloadToMailObject(payload));
+		new EMailSender(this.getJavaMailSender(), environment).sendEmail(transformPayloadToMailObject(payload));
 	}
 
 	private MailToSend transformPayloadToMailObject(String payload) {
@@ -118,7 +118,7 @@ public class EmailQueueConsumer {
 		BasicJsonParser parser = new BasicJsonParser();
 		Map<String, Object> parseMap = parser.parseMap(payload);
 		logger.info(parseMap.toString());
-		mailToSend.setDroneId(String.valueOf(parseMap.get("droneId")));
+		mailToSend.setDroneId(String.valueOf(parseMap.get("droneID")));
 		mailToSend.setDroneTemperatureReading(String.valueOf(parseMap.get("droneTemperatureReading")));
 		mailToSend.setDroneHumidityReading(String.valueOf(parseMap.get("droneHumidityReading")));
 		return mailToSend;
