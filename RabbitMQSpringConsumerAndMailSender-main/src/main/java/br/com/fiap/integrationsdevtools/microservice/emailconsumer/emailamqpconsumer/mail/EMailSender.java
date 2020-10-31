@@ -24,8 +24,8 @@ public class EMailSender {
         StringBuilder builder = new StringBuilder();
         String emailDestinoNotificacao = env.getProperty("spring.mail.properties.mail.to");
         
-        builder.append("************    NOTIFICAÇÃO DE TEMPERATURA E HUMIDADE    ************");
-        builder.append("************          Drone Reading Alarm Mail           ************");
+        builder.append("************    NOTIFICAÇÃO DE TEMPERATURA E HUMIDADE    ************").append("\n");
+        builder.append("************          Drone Reading Alarm Mail           ************").append("\n");
         builder.append("Drone ID: ").append(mailToSend.getDroneId()).append("\n");
         builder.append("Drone Temperature:").append(mailToSend.getDroneTemperatureReading()).append("\n");
         builder.append("Drone Humidity:").append(mailToSend.getDroneHumidityReading()).append("\n");
