@@ -69,21 +69,20 @@ public class DroneSensoresController {
         try {
         	Class<DroneMedicoesCreateDTO> droneCreate  = DroneMedicoesCreateDTO.class;
         	Field[] campos = droneCreate.getDeclaredFields();
-        	
-        	
-        	if (id.equals(null) ||id.equals("") ) {
-        		droneMedicoesCreateDTO.setIdDrone("");
-        	} else { 
-        		droneMedicoesCreateDTO.setIdDrone(id);
-        	}
-        	
         	for (Field campo : campos) {
         		campo.setAccessible(true);
         		Object objeto = campo.get(droneMedicoesCreateDTO);
-        		if (objeto == null || objeto.equals("")) {
+        		if (objeto == null || (objeto.equals("") && id.equals("0")) ) {
+        			logger.error("Problema nos campos de para Post com o envio dados das medicoes do drone - Favor preencher os dados");
         			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         		} else {
-        			droneService.sendMedicoes(droneMedicoesCreateDTO);
+        			if (id.equals(null) ||id.equals("") ) {
+        				droneMedicoesCreateDTO.setIdDrone("");
+        			} else { 
+        				droneMedicoesCreateDTO.setIdDrone(id);
+        			}
+        			
+        			 droneService.sendMedicoes(droneMedicoesCreateDTO);
         			 logger.info("Dados de medicoes do drone enviado.");
         			return new ResponseEntity<Void>(HttpStatus.OK);
         		}
