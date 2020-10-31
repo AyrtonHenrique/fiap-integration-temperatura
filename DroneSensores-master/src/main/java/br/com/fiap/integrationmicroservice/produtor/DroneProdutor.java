@@ -34,25 +34,39 @@ public class DroneProdutor {
 		this.environment = environment;
 	}
 
-    public void sendDrone( DroneCreateDTO droneCreateDTO ) throws Exception {
-    	//Convertendo o objeto para Json
+    public void sendDrone( DroneCreateDTO droneCreateDTO )  {
     	Gson gson = new Gson();
+    	logger.info("Convertendo os objetos para JSON");
     	String dadosDrone = gson.toJson( droneCreateDTO );
-        RabbitTemplate template = new RabbitTemplate(Configuracao.getConnection());
-        //template.convertAndSend(routingKey, message, messagePostProcessor);
-        //template.c
-        template.convertAndSend(environment.getProperty("spring.rabbitmq.exchange"), environment.getProperty("spring.rabbitmq.key"), dadosDrone );
+    	//Convertendo o objeto para Json
+    	try {
+    		RabbitTemplate template = new RabbitTemplate(Configuracao.getConnection());
+    		template.convertAndSend(environment.getProperty("spring.rabbitmq.exchange"), environment.getProperty("spring.rabbitmq.key"), dadosDrone );
+			logger.info( "Dados do Drone enviado: " + dadosDrone );
+		} catch (Exception e) {
+			logger.error("Erro no envio nos dados do drone" + dadosDrone  );
+			e.printStackTrace();
+		}
         
     }
 	
     
-    public void sendDroneMedicoes( DroneDTO droneDTO, DroneMedicoesCreateDTO droneCreateDTO ) throws Exception {
+    public void sendDroneMedicoes( DroneDTO droneDTO, DroneMedicoesCreateDTO droneCreateDTO ){
     	//Convertendo o objeto para Json
     	Gson gson = new Gson();
     	String idDrone = gson.toJson( droneDTO );
     	String dadosDrone = gson.toJson( droneCreateDTO );
-        RabbitTemplate template = new RabbitTemplate(Configuracao.getConnection());
-        template.convertAndSend(environment.getProperty("spring.rabbitmq.exchange"), environment.getProperty("spring.rabbitmq.key"),  idDrone + "\n" + dadosDrone );
+    	
+    	try {
+    		RabbitTemplate template = new RabbitTemplate(Configuracao.getConnection());
+    		template.convertAndSend(environment.getProperty("spring.rabbitmq.exchange"), environment.getProperty("spring.rabbitmq.key"),  idDrone + "\n" + dadosDrone );
+			logger.info( "Dados das medicoes do drone enviado com sucesso: " + droneDTO + dadosDrone );
+		} catch (Exception e) {
+			logger.error("Erro no envio na medicoes nos dados do drone - " + droneDTO  + dadosDrone   );
+			e.printStackTrace();
+
+		}
+    	
     }
     
 }

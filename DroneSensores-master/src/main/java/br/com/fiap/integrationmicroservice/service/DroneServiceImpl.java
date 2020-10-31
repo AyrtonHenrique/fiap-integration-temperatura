@@ -26,6 +26,7 @@ public class DroneServiceImpl implements DroneService {
 			droneProdutor.sendDrone(droneCreateDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
 	}
 

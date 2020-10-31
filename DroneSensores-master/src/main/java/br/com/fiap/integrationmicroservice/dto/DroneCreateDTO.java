@@ -1,6 +1,4 @@
 package br.com.fiap.integrationmicroservice.dto;
-
-import java.time.LocalDateTime;
 /**
  * POJO para envio dos dados do drone 
  * @author Sara Regina Pires 
@@ -9,12 +7,12 @@ import java.time.LocalDateTime;
  **/
 public class DroneCreateDTO {
 	
-	private Double latitude;
-	private Double longitude;
-	private Double temperatura;
-	private Double umidade;
-	private LocalDateTime  dataAtualizacao;
-	private Boolean rastreamento;
+	private String latitude;
+	private String longitude;
+	private String temperatura;
+	private String umidade;
+	private String dataAtualizacao;
+	private String rastreamento;
 	
 	
 	
@@ -24,8 +22,8 @@ public class DroneCreateDTO {
 	}
 
 
-	public DroneCreateDTO(long idDrone, Double latitude, Double longitude, Double temperatura, Double unidade,
-			LocalDateTime  dataAtualizacao, Boolean rastreamento) {
+	public DroneCreateDTO(String latitude, String longitude, String temperatura, String unidade,
+			String  dataAtualizacao, String rastreamento) {
 		super();
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -36,40 +34,40 @@ public class DroneCreateDTO {
 	}
 	
 	
-	public Double getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(Double latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
-	public Double getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(Double longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-	public Double getTemperatura() {
+	public String getTemperatura() {
 		return temperatura;
 	}
-	public void setTemperatura(Double temperatura) {
+	public void setTemperatura(String temperatura) {
 		this.temperatura = temperatura;
 	}
-	public Double getUnidade() {
+	public String getUnidade() {
 		return umidade;
 	}
-	public void setUnidade(Double unidade) {
+	public void setUnidade(String unidade) {
 		this.umidade = unidade;
 	}
-	public LocalDateTime  getDataAtualizacao() {
+	public String  getDataAtualizacao() {
 		return dataAtualizacao;
 	}
-	public void setDataAtualizacao(LocalDateTime  dataAtualizacao) {
+	public void setDataAtualizacao(String  dataAtualizacao) {
 		this.dataAtualizacao = dataAtualizacao;
 	}
-	public Boolean getRastreamento() {
+	public String getRastreamento() {
 		return rastreamento;
 	}
-	public void setRastreamento(Boolean rastreamento) {
+	public void setRastreamento(String rastreamento) {
 		this.rastreamento = rastreamento;
 	}
 	

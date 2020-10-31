@@ -10,77 +10,65 @@ import java.time.LocalDateTime;
 public class DroneMedicoesCreateDTO {
 	
 	
-	private Long idDrone;
-	private Double latitude;
-	private Double logitude;
-	private Double temperatura;
-	private Double unidade;
-	private LocalDateTime dataAtualizacao;
-	private Boolean rastreamento;
+	private String latitude;
+	private String logitude;
+	private String temperatura;
+	private String umidade;
+	private String dataAtualizacao;
+	private String rastreamento;
 	
 	public DroneMedicoesCreateDTO() {
 	}
 
-	public DroneMedicoesCreateDTO(Double latitude, Double logitude, Double temperatura, Double unidade,
-			LocalDateTime dataAtualizacao, Boolean rastreamento) {
+	public DroneMedicoesCreateDTO(String latitude, String logitude, String temperatura, String umidade,
+			String dataAtualizacao, String rastreamento) {
 		super();
 		this.latitude = latitude;
 		this.logitude = logitude;
 		this.temperatura = temperatura;
-		this.unidade = unidade;
+		this.umidade = umidade;
 		this.dataAtualizacao = dataAtualizacao;
 		this.rastreamento = rastreamento;
 	}
 
-	
-
-
-	public Long getIdDrone() {
-		return idDrone;
-	}
-
-	public void setIdDrone(Long idDrone) {
-		this.idDrone = idDrone;
-	}
-
-	public Double getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(Double latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
-	public Double getLogitude() {
+	public String getLogitude() {
 		return logitude;
 	}
-	public void setLogitude(Double logitude) {
+	public void setLogitude(String logitude) {
 		this.logitude = logitude;
 	}
-	public Double getTemperatura() {
+	public String getTemperatura() {
 		return temperatura;
 	}
-	public void setTemperatura(Double temperatura) {
+	public void setTemperatura(String temperatura) {
 		this.temperatura = temperatura;
 	}
-	public Double getUnidade() {
-		return unidade;
+	public String getUnidade() {
+		return umidade;
 	}
-	public void setUnidade(Double unidade) {
-		this.unidade = unidade;
+	public void setUnidade(String umidade) {
+		this.umidade = umidade;
 	}
 
-	public LocalDateTime getDataAtualizacao() {
+	public String getDataAtualizacao() {
 		return dataAtualizacao;
 	}
 
-	public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
+	public void setDataAtualizacao(String dataAtualizacao) {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
-	public Boolean getRastreamento() {
+	public String getRastreamento() {
 		return rastreamento;
 	}
 
-	public void setRastreamento(Boolean rastreamento) {
+	public void setRastreamento(String rastreamento) {
 		this.rastreamento = rastreamento;
 	}
 	

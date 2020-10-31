@@ -1,6 +1,4 @@
 package br.com.fiap.integrationmicroservice.dto;
-
-import java.time.LocalDateTime;
 /**
  * POJO para envio dos dados do drone 
  * @author Sara Regina Pires 
@@ -10,9 +8,9 @@ import java.time.LocalDateTime;
 
 public class DroneDTO {
 
-	private long idDrone;
+	private String idDrone;
 	
-	public DroneDTO(long idDrone) {
+	public DroneDTO(String idDrone) {
 		super();
 		this.idDrone = idDrone;
 	}
@@ -21,24 +19,16 @@ public class DroneDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public long getIdDrone() {
+	public String getIdDrone() {
 		return idDrone;
 	}
-	public void setIdDrone(long idDrone) {
+	public void setIdDrone(String idDrone) {
 		this.idDrone = idDrone;
 	}
 
 	@Override
 	public String toString() {
 		return "DroneDTO [idDrone=" + idDrone + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (idDrone ^ (idDrone >>> 32));
-		return result;
 	}
 
 	@Override
