@@ -1,6 +1,4 @@
 package br.com.fiap.integrationmicroservice.dto;
-
-import java.time.LocalDateTime;
 /**
  * POJO para envio dos dados do drone 
  * @author Sara Regina Pires 
@@ -10,8 +8,9 @@ import java.time.LocalDateTime;
 public class DroneMedicoesCreateDTO {
 	
 	
+	private String idDrone;
 	private String latitude;
-	private String logitude;
+	private String longitude;
 	private String temperatura;
 	private String umidade;
 	private String dataAtualizacao;
@@ -24,11 +23,19 @@ public class DroneMedicoesCreateDTO {
 			String dataAtualizacao, String rastreamento) {
 		super();
 		this.latitude = latitude;
-		this.logitude = logitude;
+		this.longitude = logitude;
 		this.temperatura = temperatura;
 		this.umidade = umidade;
 		this.dataAtualizacao = dataAtualizacao;
 		this.rastreamento = rastreamento;
+	}
+
+	public String getIdDrone() {
+		return idDrone;
+	}
+
+	public void setIdDrone(String idDrone) {
+		this.idDrone = idDrone;
 	}
 
 	public String getLatitude() {
@@ -38,10 +45,10 @@ public class DroneMedicoesCreateDTO {
 		this.latitude = latitude;
 	}
 	public String getLogitude() {
-		return logitude;
+		return longitude;
 	}
-	public void setLogitude(String logitude) {
-		this.logitude = logitude;
+	public void setLogitude(String longitude) {
+		this.longitude = longitude;
 	}
 	public String getTemperatura() {
 		return temperatura;

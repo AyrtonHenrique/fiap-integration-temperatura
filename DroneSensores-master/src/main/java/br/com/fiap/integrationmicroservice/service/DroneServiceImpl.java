@@ -31,9 +31,9 @@ public class DroneServiceImpl implements DroneService {
 	}
 
 	@Override
-	public void sendMedicoes(DroneDTO droneDTO,DroneMedicoesCreateDTO droneMedicoesCreateDTO) {
+	public void sendMedicoes(DroneMedicoesCreateDTO droneMedicoesCreateDTO) {
 		try {
-			droneProdutor.sendDroneMedicoes(droneDTO, droneMedicoesCreateDTO);
+			droneProdutor.sendDroneMedicoes(droneMedicoesCreateDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -10,6 +10,6 @@ import br.com.fiap.integrationmicroservice.dto.DroneMedicoesCreateDTO;
 public interface DroneService  {
 	
 	 void send(DroneCreateDTO droneCreateDTO);
-	 void sendMedicoes(DroneDTO droneDTO, DroneMedicoesCreateDTO droneCreateMedicoes);
+	 void sendMedicoes(DroneMedicoesCreateDTO droneCreateMedicoes);
 	
 }

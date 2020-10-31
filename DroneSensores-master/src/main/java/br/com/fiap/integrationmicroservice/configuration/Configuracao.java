@@ -58,6 +58,7 @@ public class Configuracao {
             //Recommended settings
             connectionFactory.setRequestedHeartBeat(Integer.valueOf(environment.getProperty("spring.rabbitmq.requested-heartbeat")));
             connectionFactory.setConnectionTimeout(Integer.valueOf(environment.getProperty("spring.rabbitmq.connection-timeout")));
+            logger.info("Connexão com o Rabbitmq realizada com suceso!");
         }
 
         return connectionFactory;

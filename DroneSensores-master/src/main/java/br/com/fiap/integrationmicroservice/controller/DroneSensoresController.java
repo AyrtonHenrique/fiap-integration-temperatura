@@ -69,12 +69,12 @@ public class DroneSensoresController {
         try {
         	Class<DroneMedicoesCreateDTO> droneCreate  = DroneMedicoesCreateDTO.class;
         	Field[] campos = droneCreate.getDeclaredFields();
-        	DroneDTO drone = new DroneDTO();
+        	
         	
         	if (id.equals(null) ||id.equals("") ) {
-        		drone.setIdDrone("");
+        		droneMedicoesCreateDTO.setIdDrone("");
         	} else { 
-        		drone.setIdDrone(id);
+        		droneMedicoesCreateDTO.setIdDrone(id);
         	}
         	
         	for (Field campo : campos) {
@@ -83,7 +83,7 @@ public class DroneSensoresController {
         		if (objeto == null || objeto.equals("")) {
         			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         		} else {
-        			droneService.sendMedicoes(drone, droneMedicoesCreateDTO);
+        			droneService.sendMedicoes(droneMedicoesCreateDTO);
         			 logger.info("Dados de medicoes do drone enviado.");
         			return new ResponseEntity<Void>(HttpStatus.OK);
         		}

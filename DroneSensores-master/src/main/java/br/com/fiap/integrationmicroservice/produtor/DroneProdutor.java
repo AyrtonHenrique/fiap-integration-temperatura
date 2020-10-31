@@ -51,18 +51,19 @@ public class DroneProdutor {
     }
 	
     
-    public void sendDroneMedicoes( DroneDTO droneDTO, DroneMedicoesCreateDTO droneCreateDTO ){
+    public void sendDroneMedicoes( DroneMedicoesCreateDTO droneCreateDTO ){
     	//Convertendo o objeto para Json
     	Gson gson = new Gson();
-    	String idDrone = gson.toJson( droneDTO );
+    	logger.info("Convertendo os objetos para JSON");
     	String dadosDrone = gson.toJson( droneCreateDTO );
     	
     	try {
     		RabbitTemplate template = new RabbitTemplate(Configuracao.getConnection());
-    		template.convertAndSend(environment.getProperty("spring.rabbitmq.exchange"), environment.getProperty("spring.rabbitmq.key"),  idDrone + "\n" + dadosDrone );
-			logger.info( "Dados das medicoes do drone enviado com sucesso: " + droneDTO + dadosDrone );
+    		
+    		template.convertAndSend(environment.getProperty("spring.rabbitmq.exchange"), environment.getProperty("spring.rabbitmq.key"), dadosDrone );
+			logger.info( "Dados das medicoes do drone enviado com sucesso: " + dadosDrone );
 		} catch (Exception e) {
-			logger.error("Erro no envio na medicoes nos dados do drone - " + droneDTO  + dadosDrone   );
+			logger.error("Erro no envio na medicoes nos dados do drone - " + dadosDrone   );
 			e.printStackTrace();
 
 		}
