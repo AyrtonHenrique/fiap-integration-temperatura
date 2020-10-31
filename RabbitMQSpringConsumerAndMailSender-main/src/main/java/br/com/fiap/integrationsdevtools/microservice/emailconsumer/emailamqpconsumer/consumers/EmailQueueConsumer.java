@@ -118,7 +118,7 @@ public class EmailQueueConsumer {
 		BasicJsonParser parser = new BasicJsonParser();
 		Map<String, Object> parseMap = parser.parseMap(payload);
 		logger.info(parseMap.toString());
-		mailToSend.setDroneId(String.valueOf(parseMap.get("droneID")));
+		mailToSend.setDroneId(String.valueOf(parseMap.get("DroneID")));
 		mailToSend.setDroneTemperatureReading(String.valueOf(parseMap.get("droneTemperatureReading")));
 		mailToSend.setDroneHumidityReading(String.valueOf(parseMap.get("droneHumidityReading")));
 		return mailToSend;
