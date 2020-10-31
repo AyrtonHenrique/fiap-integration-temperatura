@@ -1,4 +1,7 @@
 package br.com.fiap.integrationmicroservice.dto;
+
+import org.springframework.lang.NonNull;
+
 /**
  * POJO para envio dos dados do drone 
  * @author Sara Regina Pires 
@@ -7,11 +10,17 @@ package br.com.fiap.integrationmicroservice.dto;
  **/
 public class DroneCreateDTO {
 	
+	@NonNull
 	private String latitude;
+	@NonNull
 	private String longitude;
+	@NonNull
 	private String temperatura;
+	@NonNull
 	private String umidade;
+	@NonNull
 	private String dataAtualizacao;
+	@NonNull
 	private String rastreamento;
 	
 	
