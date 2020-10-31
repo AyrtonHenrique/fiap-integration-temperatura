@@ -41,7 +41,7 @@ public class DroneSensoresController {
         	for (Field campo : campos) {
         		campo.setAccessible(true);
         		Object objeto = campo.get(droneCreateDTO);
-        		if (objeto == null || objeto.equals("") ) {
+        		if (objeto.equals(null) || objeto.equals("") ) {
         			logger.error("Post com o envio dados do drone - Favor preencher os dados");
         			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
         			
