@@ -44,10 +44,10 @@ public class DroneMedicoesCreateDTO {
 	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
-	public String getLogitude() {
+	public String getLongitude() {
 		return longitude;
 	}
-	public void setLogitude(String longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 	public String getTemperatura() {
