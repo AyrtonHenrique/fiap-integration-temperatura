@@ -22,13 +22,13 @@ public class DroneCreateDTO {
 	}
 
 
-	public DroneCreateDTO(String latitude, String longitude, String temperatura, String unidade,
+	public DroneCreateDTO(String latitude, String longitude, String temperatura, String umidade,
 			String  dataAtualizacao, String rastreamento) {
 		super();
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.temperatura = temperatura;
-		this.umidade = unidade;
+		this.umidade = umidade;
 		this.dataAtualizacao = dataAtualizacao;
 		this.rastreamento = rastreamento;
 	}
@@ -52,10 +52,10 @@ public class DroneCreateDTO {
 	public void setTemperatura(String temperatura) {
 		this.temperatura = temperatura;
 	}
-	public String getUnidade() {
+	public String getUmidade() {
 		return umidade;
 	}
-	public void setUnidade(String unidade) {
+	public void setUmidade(String unidade) {
 		this.umidade = unidade;
 	}
 	public String  getDataAtualizacao() {

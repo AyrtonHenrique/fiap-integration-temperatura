@@ -44,10 +44,10 @@ public class DroneMedicoesCreateDTO {
 	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
-	public String getLogitude() {
+	public String getLongitude() {
 		return longitude;
 	}
-	public void setLogitude(String longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 	public String getTemperatura() {
@@ -56,10 +56,10 @@ public class DroneMedicoesCreateDTO {
 	public void setTemperatura(String temperatura) {
 		this.temperatura = temperatura;
 	}
-	public String getUnidade() {
+	public String getUmidade() {
 		return umidade;
 	}
-	public void setUnidade(String umidade) {
+	public void setUmidade(String umidade) {
 		this.umidade = umidade;
 	}
 
