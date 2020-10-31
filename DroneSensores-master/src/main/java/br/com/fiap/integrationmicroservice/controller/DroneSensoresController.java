@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 
 /**
- * Classe controle com os Endpoints de envio dos dados e medicos do Drone. 
+ * Classe controle com os Endpoints de envio dos dados e medicoes do Drone. 
  * @author SaraRegina 
  *               
  *              
@@ -24,10 +24,8 @@ import org.springframework.http.ResponseEntity;
 @RequestMapping("/drone")
 public class DroneSensoresController {
 
-    
 	private final Logger logger = LoggerFactory.getLogger(DroneSensoresController.class);
     private final DroneService droneService;
-    
     
     public DroneSensoresController(DroneService droneService) {
         this.droneService = droneService;
@@ -55,7 +53,6 @@ public class DroneSensoresController {
         	}
         	
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 		}
         return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
@@ -81,14 +78,12 @@ public class DroneSensoresController {
         			} else { 
         				droneMedicoesCreateDTO.setIdDrone(id);
         			}
-        			
         			 droneService.sendMedicoes(droneMedicoesCreateDTO);
         			 logger.info("Dados de medicoes do drone enviado.");
-        			return new ResponseEntity<Void>(HttpStatus.OK);
+        			 return new ResponseEntity<Void>(HttpStatus.OK);
         		}
         	}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 		}
         return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
