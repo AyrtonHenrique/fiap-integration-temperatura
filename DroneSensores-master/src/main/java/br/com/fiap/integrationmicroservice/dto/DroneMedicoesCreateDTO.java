@@ -56,10 +56,10 @@ public class DroneMedicoesCreateDTO {
 	public void setTemperatura(String temperatura) {
 		this.temperatura = temperatura;
 	}
-	public String getUnidade() {
+	public String getUmidade() {
 		return umidade;
 	}
-	public void setUnidade(String umidade) {
+	public void setUmidade(String umidade) {
 		this.umidade = umidade;
 	}
 
