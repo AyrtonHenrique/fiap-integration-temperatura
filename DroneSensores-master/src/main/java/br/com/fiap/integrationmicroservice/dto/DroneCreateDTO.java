@@ -3,13 +3,15 @@ package br.com.fiap.integrationmicroservice.dto;
 import org.springframework.lang.NonNull;
 
 /**
- * POJO para envio dos dados do drone 
- * @author Sara Regina Pires 
- *              
- *              
+ * POJO para envio dos dados do drone
+ * 
+ * @author Sara Regina Pires
+ * 
+ * 
  **/
 public class DroneCreateDTO {
-	
+
+	private Long idDrone;
 	@NonNull
 	private String latitude;
 	@NonNull
@@ -22,17 +24,22 @@ public class DroneCreateDTO {
 	private String dataAtualizacao;
 	@NonNull
 	private String rastreamento;
-	
-	
-	
+
 	public DroneCreateDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	public Long getIdDrone() {
+		return idDrone;
+	}
+
+	public void setIdDrone(Long idDrone) {
+		this.idDrone = idDrone;
+	}
 
 	public DroneCreateDTO(String latitude, String longitude, String temperatura, String umidade,
-			String  dataAtualizacao, String rastreamento) {
+			String  dataAtualizacao, String rastreamento, Long iddrone) {
 		super();
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -40,6 +47,7 @@ public class DroneCreateDTO {
 		this.umidade = umidade;
 		this.dataAtualizacao = dataAtualizacao;
 		this.rastreamento = rastreamento;
+		this.idDrone  = iddrone;
 	}
 	
 	

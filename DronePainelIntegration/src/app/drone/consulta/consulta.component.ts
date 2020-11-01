@@ -68,14 +68,14 @@ export class ConsultaComponent implements OnInit {
   timerTick: number = 30
   timerSubscription: Subscription;
   constructor(private httpService: HttpService,
-    private router: Router, private route: ActivatedRoute) { 
+    private router: Router, private route: ActivatedRoute) {
     this.listDrones = new Array();
   }
 
   ngOnInit(): void {
     if (localStorage['droneTimer'] != undefined){
       this.timerTick = parseInt(localStorage['droneTimer']) * 1000
-    } 
+    }
     this.originalTimer = this.timerTick
     this.createTimer(this.timerTick)
 
@@ -112,21 +112,21 @@ export class ConsultaComponent implements OnInit {
     this.httpService.get('drones', '/med').subscribe(
       (response)=>{
         response.forEach(droneResp => {
-          let droneIndex = this.listDrones.findIndex(drone=> drone.id == droneResp.idDrone )
-          
+          let droneIndex = this.listDrones.findIndex(drone=> drone.id == droneResp.id )
+
           if (droneIndex > -1 ){
             let lastMedicao = Generics.getDadosLastMedicao(droneResp.medicoes)
             this.listDrones[droneIndex].qtdMedicoes = (droneResp.medicoes).length
             this.listDrones[droneIndex].lastMedicao[0] = lastMedicao
 
             if (lastMedicao.rastreamento){
-              this.sendNewMedicao({ id: droneResp.idDrone, lastMedicao: lastMedicao })
+              this.sendNewMedicao({ id: droneResp.id, lastMedicao: lastMedicao })
             }
           } else {
             let ultimaMedicao = Generics.getDadosLastMedicao(droneResp.medicoes)
 
             let drone: Drones = {
-              id: droneResp.idDrone,
+              id: droneResp.id,
               qtdMedicoes: droneResp.medicoes?.length,
               lastMedicao: [{
                 latitude: ultimaMedicao.latitude,
@@ -137,7 +137,7 @@ export class ConsultaComponent implements OnInit {
                 dataAtualizacao: ultimaMedicao.dataAtualizacao
               }]
             }
-  
+
             this.listDrones.push(drone)
           }
         });
@@ -153,5 +153,5 @@ export class ConsultaComponent implements OnInit {
 
     )
   }
-  
+
 }

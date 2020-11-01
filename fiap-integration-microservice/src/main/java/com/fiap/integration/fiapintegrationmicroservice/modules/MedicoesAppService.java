@@ -42,7 +42,7 @@ public class MedicoesAppService implements IMedicoesAppService {
         Medicao medicao = new Medicao(drone, medicaoResponse.latitude, medicaoResponse.longitude,
                 medicaoResponse.temperatura, medicaoResponse.umidade, medicaoResponse.dataAtualizacao,
                 medicaoResponse.rastreamento);
-    	logger.info("Salvando nova Medição no banco de dados");
+    	logger.info("Salvando nova Mediï¿½ï¿½o no banco de dados");
         _medicoesRepository.save(medicao);
 
         Optional<Drone> _drone = _droneRepository.findById(medicao.getDrone().getId());
@@ -52,7 +52,7 @@ public class MedicoesAppService implements IMedicoesAppService {
             }
         }
 
-    	logger.info("Iniciando validação de alertas de temperatura e umidade...");
+    	logger.info("Iniciando validaï¿½ï¿½o de alertas de temperatura e umidade...");
         Long iddrone = medicao.getDrone().getId();
         Optional<Evento> evento = _eventoAlerta.stream().filter(e -> e.getIdDrone() == iddrone).findFirst();
 
@@ -65,10 +65,10 @@ public class MedicoesAppService implements IMedicoesAppService {
 
             if (evento.get().getHoraFimEnvioAlerta().isBefore(medicao.getDataAtualizacao())
                     && evento.get().getPersiteTemperaturaUmidadeNivelAlerta()) {
-            	logger.info("Alerta de Temperatura e Pressão - NECESSIDADE DE ENVIO DE E-MAIL PARA GESTORES.");
-            	logger.info("Alerta de Temperatura e Pressão - Temperatura ou Umidade fora dos limites aceitos no período de 1min.");
+            	logger.info("Alerta de Temperatura e Pressï¿½o - NECESSIDADE DE ENVIO DE E-MAIL PARA GESTORES.");
+            	logger.info("Alerta de Temperatura e Pressï¿½o - Temperatura ou Umidade fora dos limites aceitos no perï¿½odo de 1min.");
                 notificar(medicao);
-                logger.info("Alerta de Temperatura e Pressão - Solicitação de envio de EMAIL encaminhada.");
+                logger.info("Alerta de Temperatura e Pressï¿½o - Solicitaï¿½ï¿½o de envio de EMAIL encaminhada.");
                 _eventoAlerta.remove(evento.get());
                 return;
             }
@@ -93,7 +93,7 @@ public class MedicoesAppService implements IMedicoesAppService {
 
     private void iniciarAvalicaoUmMinuto(Medicao medicao) {
         _eventoAlerta.add(new Evento(medicao.getDataAtualizacao(), medicao.getDataAtualizacao().plusMinutes(1),
-                medicao.getId(), true));
+                medicao.getDrone().getId(), true));
     }
 
     private void notificar(Medicao medicao) throws JsonProcessingException {

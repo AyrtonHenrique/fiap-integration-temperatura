@@ -5,9 +5,9 @@ import { Generics } from 'src/app/core/generics';
 import { PoNotification, PoNotificationService } from '@po-ui/ng-components';
 
 @Component({
-  selector: 'app-cadastro', 
-  templateUrl: './cadastro.component.html', 
-  styleUrls: ['./cadastro.component.scss'], 
+  selector: 'app-cadastro',
+  templateUrl: './cadastro.component.html',
+  styleUrls: ['./cadastro.component.scss'],
 })
 export class CadastroComponent implements OnInit {
   droneId: number = 1
@@ -20,10 +20,10 @@ export class CadastroComponent implements OnInit {
   legendaBotao: string = "Enable Tracking"
   blockSave: boolean = false
 
-  constructor(private httpService: HttpService, 
+  constructor(private httpService: HttpService,
     private poNotification: PoNotificationService,
-    private router: Router, 
-    private route: ActivatedRoute) { 
+    private router: Router,
+    private route: ActivatedRoute) {
 
   }
 
@@ -31,7 +31,7 @@ export class CadastroComponent implements OnInit {
     this.restore();
     let droneId = this.route.snapshot.paramMap.get("codDrone");
 
-    if (droneId != null){
+    if (droneId != null) {
       this.droneId = parseInt(droneId)
       this.getDrone(this.droneId)
     } else {
@@ -39,7 +39,7 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-  initDadosDrone(){
+  initDadosDrone() {
     this.airHumidity = 50
     this.temperature = 0
     this.latitude = 0
@@ -47,22 +47,22 @@ export class CadastroComponent implements OnInit {
     this.enabled = true
   }
 
-  getDrone(idDrone: number){
-    this.httpService.get('drones', '/med').subscribe(
-      (response)=>{
-        response.forEach(drone => {
-          if (drone.idDrone == this.droneId){
-            let ultimaMedicao = Generics.getDadosLastMedicao(drone.medicoes)
-
-            if (ultimaMedicao != undefined){
-              this.airHumidity = ultimaMedicao.umidade
-              this.temperature = ultimaMedicao.temperatura
-              this.latitude = ultimaMedicao.latitude
-              this.longitude = ultimaMedicao.longitude
-              this.enabled = ultimaMedicao.rastreamento
-            }
+  getDrone(idDrone: number) {
+    this.httpService.get('drones/' + idDrone, '/med').subscribe(
+      (response) => {
+        if (response != null) {
+          let ultimaMedicao = Generics.getDadosLastMedicao(response.medicoes)
+          // console.log(drone);
+          if (ultimaMedicao != undefined) {
+            this.airHumidity = ultimaMedicao.umidade
+            this.temperature = ultimaMedicao.temperatura
+            this.latitude = ultimaMedicao.latitude
+            this.longitude = ultimaMedicao.longitude
+            this.enabled = ultimaMedicao.rastreamento
           }
-        });
+        }else{
+          this.initDadosDrone();
+        }
       }
     )
   }
@@ -84,9 +84,9 @@ export class CadastroComponent implements OnInit {
     return value + '%';
   }
 
-  createBodyNewDrone(): BodyCadastro{
+  createBodyNewDrone(): BodyCadastro {
     return {
-      idDrone : this.droneId,
+      idDrone: this.droneId,
       latitude: this.latitude,
       longitude: this.longitude,
       temperatura: this.temperature,
@@ -96,17 +96,17 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-  goBack(){
+  goBack() {
     this.router.navigateByUrl('/drone')
   }
 
-  salvar(){
+  salvar() {
     this.blockSave = true
     let json = this.createBodyNewDrone()
-    if (this.validaDados()){
-      this.httpService.post('drone', JSON.stringify(json), 'med/').subscribe(
-        response=>{ 
-          this.blockSave = false  
+    if (this.validaDados()) {
+      this.httpService.post('drone', JSON.stringify(json), '/uri').subscribe(
+        response => {
+          this.blockSave = false
           this.poNotification.success("A ultima posição do Drone foi atualizada com sucesso!")
         }
       )
@@ -115,19 +115,19 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-  validaDados(){
+  validaDados() {
     let lOk: boolean = true
-    if (this.droneId == undefined){
+    if (this.droneId == undefined) {
       this.poNotification.error("Informe um código para o Drone!")
       lOk = false;
     }
 
-    if (this.latitude < -90 || this.latitude > 90 ){
+    if (this.latitude < -90 || this.latitude > 90) {
       this.poNotification.error("A latitude tem de estar entre -90º e 90º!")
       lOk = false
     }
 
-    if (this.longitude < -180 || this.longitude > 180 ){
+    if (this.longitude < -180 || this.longitude > 180) {
       this.poNotification.error("A longitude tem de estar entre -180º e 180º!")
       lOk = false
     }

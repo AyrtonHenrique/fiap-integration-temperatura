@@ -39,7 +39,7 @@ interface marker {
 export class MonitoramentoComponent implements OnInit {
   apiLoaded: Observable<any>;
   markerOptions: google.maps.MarkerOptions = {draggable: false };
-  polylineOptions: google.maps.PolylineOptions = { 
+  polylineOptions: google.maps.PolylineOptions = {
     geodesic: false,
     strokeColor: "#FFAC2B",
     strokeOpacity: 1.0,
@@ -50,7 +50,7 @@ export class MonitoramentoComponent implements OnInit {
   @ViewChild("maps", { static: true }) googleMaps: GoogleMap;
   @ViewChild("mapsPolyline", { static: false }) mapsPolyline: google.maps.Polyline
   @ViewChild("mapsMarker", { static: false }) mapsMarker: google.maps.Marker
-  
+
   medicaoDetail: PoTableDetail = {
     columns: [
       { property: 'id', label: 'Sequencial' },
@@ -59,7 +59,7 @@ export class MonitoramentoComponent implements OnInit {
       { property: 'umidade', label: 'Umidade', type: 'number' },
       { property: 'temperatura', label: 'Temperatura', type: 'number' },
       { property: 'dataAtualizacao', label: 'Data atualização', type: 'string'}
-    ], 
+    ],
     typeHeader: 'top'
   };
 
@@ -71,12 +71,12 @@ export class MonitoramentoComponent implements OnInit {
     },
     {
       label: 'Latitude',
-      property: 'latitude', 
+      property: 'latitude',
     },
     {
       label: 'Longitude',
       property: 'longitude'
-    }, 
+    },
     {
       label: 'Temperature',
       property: 'temperatura'
@@ -100,9 +100,9 @@ export class MonitoramentoComponent implements OnInit {
       }
     }
   ]
-  
+
   listDrones: Array<Drones>
-  
+
   constructor(private httpService: HttpService) {
     this.listDrones = new Array()
    }
@@ -117,29 +117,31 @@ export class MonitoramentoComponent implements OnInit {
     this.httpService.get('drones', '/med').subscribe((response)=>{
       response.forEach(drone => {
         let medicoes = drone.medicoes
-        let lastMedicaoIndex = Math.max(...medicoes.filter(medicao => medicao.rastreamento).map(medicao => medicao.idMedicao))-1
-        
-        if (lastMedicaoIndex > -1){
+        let medicaoRecente = medicoes.filter(medicao => medicao.rastreamento)[0];
+        // let lastMedicaoIndex = Math.max(...medicoes.filter(medicao => medicao.rastreamento).map(medicao => medicao.id))-1
+        console.log(medicoes);
+        // console.log(lastMedicaoIndex);
+        // if (lastMedicaoIndex > -1){
           let newDrone: Drones = {
-            id: drone.idDrone,
-            latitude: drone.medicoes[lastMedicaoIndex].latitude,
-            longitude: drone.medicoes[lastMedicaoIndex].longitude,
-            temperatura: drone.medicoes[lastMedicaoIndex].temperatura,
-            umidade: drone.medicoes[lastMedicaoIndex].umidade,
+            id: drone.id,
+            latitude: medicaoRecente.latitude,
+            longitude: medicaoRecente.longitude,
+            temperatura: medicaoRecente.temperatura,
+            umidade: medicaoRecente.umidade,
             medicoes: (<Array<any>>drone.medicoes).filter(medicao => medicao.rastreamento).map((medicao)=>{
               return <Medicoes> {
-                id: medicao.idMedicao,
+                id: medicao.id,
                 lat: medicao.latitude,
                 lng: medicao.longitude,
                 temperatura: medicao.temperatura,
                 umidade: medicao.umidade,
                 dataAtualizacao: new Date(medicao.dataAtualizacao).toLocaleString()
-              }            
+              }
             })
           }
-          
+
           this.listDrones.push(newDrone)
-        }
+        // }
       });
     })
   }
@@ -149,7 +151,7 @@ export class MonitoramentoComponent implements OnInit {
       apiKey: key
     })
   }
-  
+
   initMap(): void {
     let initPos: google.maps.LatLng = new google.maps.LatLng(-23.574116, -46.623216)
     this.googleMaps.center = initPos;
