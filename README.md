@@ -52,6 +52,8 @@ SMTP.
             }
         
         URLs da aplicação Angular: 
+          http://<servidor angular>:4200/monitoramento - Aplicação que consulta os drones sendo rastreados e os exibe no mapa do Google Maps
+          http://<servidor angular>:4200/drone         - Aplicação que consulta e cadastra novos drones para serem rastreados
         
 ### 3. RabbitMQ
 
@@ -72,4 +74,8 @@ SMTP.
 
       https://www.loom.com/share/886150c5a4f64a8ab8414c8733e0dcda?from_recorder=1
       Senha para acesso ao vídeo: fiapDev
+      
+### 5. Descrição detalhada do trabalho
+
+      
       
