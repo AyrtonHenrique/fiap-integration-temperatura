@@ -77,5 +77,6 @@ SMTP.
       
 ### 5. Descrição detalhada do trabalho
 
+      [Trabalho Final - Integrations and Dev Tools.pdf](https://github.com/AyrtonHenrique/fiap-integration-temperatura/files/5478521/Trabalho.Final.-.Integrations.and.Dev.Tools.pdf)
       
       
