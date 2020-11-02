@@ -75,8 +75,10 @@ SMTP.
       https://www.loom.com/share/886150c5a4f64a8ab8414c8733e0dcda?from_recorder=1
       Senha para acesso ao vídeo: fiapDev
       
-### 5. Descrição detalhada do trabalho
+### 5. PDF com descrição detalhada do trabalho - Download
 
       [Trabalho Final - Integrations and Dev Tools.pdf](https://github.com/AyrtonHenrique/fiap-integration-temperatura/files/5478521/Trabalho.Final.-.Integrations.and.Dev.Tools.pdf)
+      
+      [PDF para Download](https://github.com/AyrtonHenrique/fiap-integration-temperatura/files/5478521/Trabalho.Final.-.Integrations.and.Dev.Tools.pdf "PDF File")
       
       
